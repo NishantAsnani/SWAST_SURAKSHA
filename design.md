@@ -1,5 +1,6 @@
-# SwasthChain – SURAKSHA
+# SWASTH SURAKSHA
 ## System Design Document
+### Smart Wellness Analytics & Secure Technology for Structured Unified Record Architecture
 
 **Version:** 1.0  
 **Date:** February 15, 2026
@@ -30,7 +31,7 @@ Microservices-based architecture with:
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │              CLIENT LAYER                                    │
-│  Web (React) │ Mobile (React Native) │ Doctor Portal       │
+│         Web App (React) │ Doctor Portal (React)            │
 └─────────────────────────────────────────────────────────────┘
                           ↓
 ┌─────────────────────────────────────────────────────────────┐
@@ -222,25 +223,22 @@ CREATE TABLE consents (
 
 ## 6. Security Architecture
 
-### Security Layers
-1. Application Security (Input validation, OWASP)
-2. Authentication & Authorization (JWT, RBAC, MFA)
-3. API Security (Rate limiting, API keys)
-4. Data Encryption (AES-256 at rest, TLS 1.3)
-5. Network Security (VPC, Firewall, WAF)
+### Security Measures
+1. Application Security (Input validation, SQL injection prevention)
+2. Authentication & Authorization (JWT, RBAC)
+3. Data Encryption (HTTPS/TLS, bcrypt for passwords)
+4. Network Security (AWS Security Groups, VPC)
 
 ### Encryption
-- **At Rest**: AES-256 (MySQL TDE, S3 encryption)
-- **In Transit**: TLS 1.3
+- **In Transit**: HTTPS/TLS
+- **Passwords**: bcrypt hashing
 - **Sensitive Fields**: Application-level encryption
-- **Key Management**: AWS KMS/Azure Key Vault
+- **Storage**: S3 server-side encryption
 
 ### Access Control (RBAC)
 - **Patient**: View own records, grant consent
 - **Doctor**: View consented records, create records
-- **Hospital Admin**: Manage hospital users
 - **Insurance Officer**: View claim-related records
-- **Researcher**: Access anonymized data
 
 ---
 
@@ -315,14 +313,14 @@ Code Commit → GitHub → Manual Deploy to EC2
 ## 10. Disaster Recovery
 
 ### Backup Strategy
-- **Database**: Daily full, 6-hour incremental, 30-day retention
-- **Files**: Daily incremental, weekly full, 90-day retention
-- **Storage**: S3 with versioning, Glacier for archival
+- **Database**: RDS automated daily backups, 7-day retention
+- **Files**: S3 versioning enabled
+- **Code**: GitHub repository
 
 ### Recovery Objectives
-- RPO (Recovery Point Objective): < 1 hour
-- RTO (Recovery Time Objective): < 4 hours
-- Uptime SLA: 99.9%
+- RPO (Recovery Point Objective): < 24 hours
+- RTO (Recovery Time Objective): < 8 hours
+- Target Uptime: 99%
 
 ---
 
@@ -330,7 +328,7 @@ Code Commit → GitHub → Manual Deploy to EC2
 
 | Layer | Technology |
 |-------|-----------|
-| Frontend | React 18+, React Native, JavaScript |
+| Frontend | React 18+, JavaScript |
 | Backend | Node.js, Express.js, JavaScript |
 | AI/ML | Python, FastAPI, scikit-learn, TensorFlow |
 | Database | MySQL 8.0+, Sequelize ORM |

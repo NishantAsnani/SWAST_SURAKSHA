@@ -1,5 +1,5 @@
-# SwasthChain – SURAKSHA
-## Secure Unified Records & Aadhaar-Linked Swasthya Healthcare Access
+# SWASTH SURAKSHA
+## Smart Wellness Analytics & Secure Technology for Structured Unified Record Architecture
 
 **Version:** 1.0  
 **Date:** February 15, 2026  
@@ -120,32 +120,28 @@ Create a secure, interoperable, patient-centric digital health infrastructure th
 ## 5. Non-Functional Requirements
 
 ### Performance
-- NFR1: Support 10,000 concurrent users
-- NFR2: API response time < 200ms (95th percentile)
-- NFR3: Patient record retrieval < 1 second
-- NFR4: OCR processing: 1000 pages/hour per user
+- NFR1: Support 1,000 concurrent users
+- NFR2: API response time < 500ms
+- NFR3: Patient record retrieval < 2 seconds
+- NFR4: OCR processing: 100 pages/hour per user
 
 ### Security
-- NFR5: AES-256 encryption at rest, TLS 1.3 in transit
-- NFR6: ISO 27001 compliance
-- NFR7: Regular security audits and penetration testing
-- NFR8: Session timeout after 15 minutes
+- NFR5: HTTPS/TLS encryption, bcrypt password hashing
+- NFR6: Input validation and SQL injection prevention
+- NFR7: Session timeout after 30 minutes
 
 ### Scalability
-- NFR9: Horizontal scaling for all microservices
-- NFR10: Auto-scaling based on traffic
-- NFR11: Database read replicas for load distribution
+- NFR8: Vertical scaling capability (upgrade EC2 instances)
+- NFR9: Load balancing support
 
 ### Reliability
-- NFR12: 99.9% uptime
-- NFR13: Automated failover for critical services
-- NFR14: Daily automated backups with 30-day retention
+- NFR10: 99% uptime target
+- NFR11: Daily automated database backups
 
 ### Compliance
-- NFR15: DPDP Act 2023 compliance
-- NFR16: ABDM guidelines adherence
-- NFR17: FHIR R4 specification compliance
-- NFR18: 7-year audit log retention
+- NFR12: DPDP Act 2023 compliance
+- NFR13: ABDM guidelines adherence
+- NFR14: Basic FHIR resource support
 
 ---
 
@@ -153,7 +149,6 @@ Create a secure, interoperable, patient-centric digital health infrastructure th
 
 **Frontend**
 - Web: React 18+, Material-UI
-- Mobile: React Native, Expo
 
 **Backend**
 - Microservices: Node.js with Express.js
@@ -181,19 +176,18 @@ Create a secure, interoperable, patient-centric digital health infrastructure th
 
 **Technical**
 - Must integrate with ABDM infrastructure
-- Mobile app size < 50MB
-- Support Android 8.0+ and iOS 13.0+
 - Data residency: India only
+- Hosting: AWS EC2 only (no containerization)
+- Web browser support: Chrome, Firefox, Safari, Edge
 
 **Business**
-- MVP budget: ₹50 lakhs
-- Delivery timeline: 6 months
-- Target: 10,000 users in first 3 months
+- Hackathon/MVP budget: ₹10 lakhs
+- Delivery timeline: 3 months
+- Target: 1,000 users in first 3 months
 
 **Regulatory**
 - Explicit patient consent required
 - Data deletion within 30 days of request
-- Healthcare provider registration verification
 
 ---
 
@@ -224,7 +218,6 @@ Create a secure, interoperable, patient-centric digital health infrastructure th
 3. Document upload and OCR
 4. Simple voice symptom checker
 5. FHIR API implementation
-6. Mobile app (basic features)
 
 ### Phase 2 - AI Features (3 months)
 1. Disease risk prediction
